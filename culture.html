@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cultural Activities</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+</script>
+    <script>
+      tailwind.config = {
+          darkMode: 'class',
+          theme: {
+              extend: {
+                  colors: {
+                      primary: '#6366f1'
+                  }
+              }
+          }
+      }
+  </script>
+  
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #003366;
+            text-align: center;
+            position: relative;
+        }
+        #particles-js {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            z-index: -1; /* Ensures particles stay in the background */
+        }
+        .container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(700px, 1fr));
+            gap: 20px;
+            max-width: 900px;
+            margin: auto;
+        }
+        .grid-item {
+            background-color: white;
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease-in-out;
+        }
+        .grid-item:hover {
+            transform: scale(1.02);
+        }
+        .columns {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            justify-content: flex-start;
+            text-align: left;
+        }
+        .columns img {
+            max-width: 100%;
+            border-radius: 10px;
+            max-height: 150px; /* limit image height for consistency */
+        }
+        h1 {
+            font-size: 2em;
+            color: #444;
+            margin-bottom: 10px;
+        }
+        h2 {
+            color: #333;
+            font-size: 1.5em;
+        }
+        .details p {
+            color: #666;
+            font-size: 1em;
+        }
+        .activity-info {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+        }
+        .activity-info div {
+            font-size: 1em;
+        }
+        .activity-info .date, .activity-info .registration {
+            color: #444;
+        }
+        .Registration_button {
+          background-color: #000080; 
+          color: white;
+          padding: 10px 20px;
+          border-radius: 5px;
+          text-decoration: none;
+          font-weight: bold;
+          transition: background-color 0.3s ease; 
+        }
+
+    </style>
+</head>
+<body class="dark:bg-gray-900 bg-gray-50 transition-colors duration-300 dark:text-white">
+  <div id="mobile-menu" class="fixed inset-0 bg-gray-900/95 z-40 transform translate-x-full transition-transform duration-300">
+    <div class="flex justify-end p-6">
+        <button id="close-menu" class="text-white text-2xl">
+            <i class="fas fa-times"></i>
+        </button>
+    </div>
+    <div class="flex flex-col items-center space-y-8 text-white text-xl">
+        <a href="index.html" class="mobile-link hover:text-primary transition-colors">Home</a>
+        <a href="#Explore" class="mobile-link hover:text-primary transition-colors">Explore</a>
+        <a href="#services" class="mobile-link hover:text-primary transition-colors">Services</a>
+        <a href="#about" class="mobile-link hover:text-primary transition-colors">About</a>
+        <a href="#contact" class="mobile-link hover:text-primary transition-colors">Contact</a>
+    </div>
+</div>
+
+<!-- Navbar -->
+<nav class="fixed w-full backdrop-blur-md bg-white/70 dark:bg-gray-900/70 z-30">
+    <div class="container mx-auto px-6 py-4">
+        <div class="flex items-center justify-between">
+            <a href="#" class="text-4xl font-bold text-primary">SyncU</a>
+            <div class="flex items-center gap-8">
+                <div class="hidden lg:flex space-x-8">
+                    <a href="index.html" class="nav-link relative text-gray-700 dark:text-gray-300 hover:text-primary transition-colors">Home</a>
+                    <a href="Explore.html" class="nav-link relative text-gray-700 dark:text-gray-300 hover:text-primary transition-colors">Explore</a>
+                    <a href="#index.html" class="nav-link relative text-gray-700 dark:text-gray-300 hover:text-primary transition-colors">About</a>
+                    <a href="#get in touch" class="nav-link relative text-gray-700 dark:text-gray-300 hover:text-primary transition-colors">Contact</a>
+                    <a href="more.html" class="nav-link relative text-gray-700 dark:text-gray-300 hover:text-primary transition-colors">More</a>
+                    <a href="Sign_in.html" class="nav-link relative text-gray-700 dark:text-gray-300 hover:text-primary transition-colors"><i class="fa-solid fa-user fa-lg"></i></a>
+
+                </div>
+                <button id="theme-toggle" class="p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800">
+                    <i class="fas fa-moon dark:text-white"></i>
+                </button>
+                <button id="mobile-menu-button" class="lg:hidden text-gray-600 dark:text-white">
+                    <i class="fas fa-bars text-2xl"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+</nav>
+
+<!-- Floating Social Media Bar -->
+<div class="fixed left-6 top-1/2 transform -translate-y-1/2 hidden md:flex flex-col gap-4 z-20">
+    <a href="#" class="social-float-link" data-tooltip="GitHub">
+        <i class="fab fa-github"></i>
+    </a>
+    <a href="#" class="social-float-link" data-tooltip="LinkedIn">
+        <i class="fab fa-linkedin"></i>
+    </a>
+    <a href="#" class="social-float-link" data-tooltip="Twitter">
+        <i class="fab fa-twitter"></i>
+    </a>
+    
+</div><br><br><br>
+    <div id="particles-js"></div>
+    <div class="container">
+        <div class="grid-item">
+            <h2><b>Folk Music</b></h2>
+            <div class="columns">
+                <div><img src="images\C1.jpg" alt="Activity Image"></div>
+                <p><b>Info:</b> Host live folk music sessions featuring local artists, highlighting the diversity of India's folk music heritage.</p>
+                <div class="activity-info">
+                    <div class="date"><strong>Date:</strong> XYZ</div>
+                    <div class="registration"><strong>Registration:</strong> Open</div>
+                </div>
+                <div>
+                  <button >
+                  
+                    <a class="Registration_button"> Register</a>
+                  </button>
+                </div>
+            </div>
+        </div>
+        <div class="grid-item">
+            <h2><b>Traditional Dance</b></h2>
+            <div class="columns">
+                <div><img src="images\c2.jpg" alt="Activity Image"></div>
+                <p><b>Info:</b> Participate in workshops to learn traditional dance forms from different regions of India.</p>
+                <div class="activity-info">
+                    <div class="date"><strong>Date:</strong> XYZ</div>
+                    <div class="registration"><strong>Registration:</strong> Open</div>
+                </div>
+                <div>
+                  <button>
+                    <a class="Registration_button"> Register</a>
+                  </button>
+                </div>
+            </div>
+        </div>
+        <div class="grid-item">
+            <h2><b>Sports Clinics and Workshops</b></h2>
+            <div class="columns">
+                <div><img src="images\c3.jpg" alt="Activity Image"></div>
+                <p><b>Info:</b> Attend sports clinics and workshops for various disciplines, promoting fitness and well-being.</p>
+                <div class="activity-info">
+                    <div class="date"><strong>Date:</strong> XYZ</div>
+                    <div class="registration"><strong>Registration:</strong> Open</div>
+                </div>
+                <div>
+                  <button>
+                    <a class="Registration_button"> Register</a>
+                  </button>
+                </div>
+            </div>
+        </div>
+        <div class="grid-item">
+            <h2><b>Folk Theater</b></h2>
+            <div class="columns">
+                <div><img src="images\c4.jpg" alt="Activity Image"></div>
+                <p><b>Info:</b> Enjoy traditional folk theater performances showcasing regional stories and art.</p>
+                <div class="activity-info">
+                    <div class="date"><strong>Date:</strong> XYZ</div>
+                    <div class="registration"><strong>Registration:</strong> Open</div>
+                </div>
+                <div>
+                  <button>
+                    <a class="Registration_button"> Register</a>
+                  </button>
+                </div>
+            </div>
+        </div>
+        <div class="grid-item">
+            <h2><b>Language and Literature</b></h2>
+            <div class="columns">
+                <div><img src="images\c5.jpg" alt="Activity Image"></div>
+                <p><b>Info:</b> Engage in discussions and workshops on various regional languages and literature.</p>
+                <div class="activity-info">
+                    <div class="date"><strong>Date:</strong> XYZ</div>
+                    <div class="registration"><strong>Registration:</strong> Open</div>
+                </div>
+                <div>
+                  <button>
+                    <a class="Registration_button"> Register</a>
+                  </button>
+                </div>
+            </div>
+        </div>
+        <div class="grid-item">
+            <h2><b>Yoga and Meditation Sessions</b></h2>
+            <div class="columns">
+                <div><img src="images\C6.jpg" alt="Activity Image"></div>
+                <p><b>Info:</b> Participate in rejuvenating yoga and meditation sessions for mental and physical well-being.</p>
+                <div class="activity-info">
+                    <div class="date"><strong>Date:</strong> XYZ</div>
+                    <div class="registration"><strong>Registration:</strong> Open</div>
+                    <div>
+                      <button>
+                        <a class="Registration_button"> Register</a>
+                      </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <script>
+        // Particles.js Configuration for Background Animation
+        particlesJS("particles-js", {
+            particles: {
+                number: { value: 80, density: { enable: true, value_area: 800 } },
+                color: { value: "#ffffff" },
+                shape: { type: "circle" },
+                opacity: { value: 0.5, random: true, anim: { enable: true, speed: 1, opacity_min: 0.1, sync: false } },
+                size: { value: 3, random: true, anim: { enable: true, speed: 4, size_min: 0.1, sync: false } },
+                line_linked: { enable: true, distance: 150, color: "#ffffff", opacity: 0.4, width: 1 },
+                move: { enable: true, speed: 6, direction: "none", random: false, straight: false, out_mode: "out", bounce: false }
+            },
+            interactivity: { detect_on: "canvas", events: { onhover: { enable: true, mode: "repulse" }, onclick: { enable: true, mode: "push" } } },
+            retina_detect: true
+        });
+    </script><br><br>
+    <footer>
+      <p>&copy; 2024 Student Community. All Rights Reserved.</p>
+    </footer>
+</body>
+</html>
